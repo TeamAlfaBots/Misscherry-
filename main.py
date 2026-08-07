@@ -14,16 +14,20 @@ from core.translator import load_locales
 
 plugins = dict(root="modules")
 
-app = Client(
-    "MissCherry",
-    api_id=cfg.API_ID,
-    api_hash=cfg.API_HASH,
-    bot_token=cfg.BOT_TOKEN,
-    plugins=plugins
-)
+app: Client = None
 
 
 async def main():
+    global app
+
+    app = Client(
+        "MissCherry",
+        api_id=cfg.API_ID,
+        api_hash=cfg.API_HASH,
+        bot_token=cfg.BOT_TOKEN,
+        plugins=plugins
+    )
+
     await db.connect()
     logger.info("✅ Database connected")
 
@@ -47,10 +51,5 @@ if __name__ == "__main__":
     print("║         By AlfaBots              ║")
     print("╚══════════════════════════════════╝")
 
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    try:
-        loop.run_until_complete(main())
-    finally:
-        loop.close()
-        
+    asyncio.run(main())
+    
