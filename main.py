@@ -65,6 +65,7 @@ async def main():
             f"🐞DEBUG_RAW_UPDATE🐞 chat_id={message.chat.id} "
             f"chat_type={message.chat.type} text={message.text!r}"
         )
+        message.continue_propagation()
 
     await db.connect()
     logger.info("✅ Database connected")
