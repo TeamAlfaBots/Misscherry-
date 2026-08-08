@@ -8,7 +8,8 @@ import os
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-from pyrogram import Client, idle
+from pyrogram import Client, idle, filters
+from pyrogram.types import Message
 
 from core.config import cfg
 from core.logger import logger
@@ -55,6 +56,15 @@ async def main():
         plugins=plugins,
         in_memory=True
     )
+
+    # DEBUG: raw catch-all handler, no filters, separate dispatch group (-1)
+    # so it always runs first and independently of every other handler.
+    @app.on_message(filters.all, group=-1)
+    async def debug_catch_all(client: Client, message: Message):
+        logger.info(
+            f"🐞DEBUG_RAW_UPDATE🐞 chat_id={message.chat.id} "
+            f"chat_type={message.chat.type} text={message.text!r}"
+        )
 
     await db.connect()
     logger.info("✅ Database connected")
