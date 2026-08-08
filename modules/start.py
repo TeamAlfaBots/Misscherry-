@@ -29,12 +29,18 @@ async def start_private(client: Client, message: Message):
 
 @Client.on_message(filters.command("start") & ~filters.private)
 async def start_group(client: Client, message: Message):
-    user = message.from_user
-    await save_chat(message.chat.id, message.chat.title)
-    await save_user(user.id, user.username)
-    await log_bot_started(client, message)
-    text = await _(message.chat.id, "start.group_welcome", name=mention(user))
-    await message.reply_text(text, reply_markup=start_kb())
+    from core.logger import logger
+    logger.info(f"🐞 start_group HANDLER TRIGGERED chat_id={message.chat.id}")
+    try:
+        user = message.from_user
+        await save_chat(message.chat.id, message.chat.title)
+        await save_user(user.id, user.username)
+        await log_bot_started(client, message)
+        text = await _(message.chat.id, "start.group_welcome", name=mention(user))
+        await message.reply_text(text, reply_markup=start_kb())
+        logger.info("🐞 start_group COMPLETED successfully")
+    except Exception as e:
+        logger.info(f"🐞 start_group CRASHED: {e!r}")
 
 
 # ══════════════════════════════════════════════
@@ -368,3 +374,4 @@ async def cb_help_module(client: Client, query: CallbackQuery):
             )
     except Exception as e:
         print(f"[cb_help_module] Error: {e}")
+        
