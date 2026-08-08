@@ -4,6 +4,9 @@
 # ╚══════════════════════════════════════════╝
 
 import asyncio
+import os
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
 from pyrogram import Client, idle
 
@@ -17,8 +20,32 @@ plugins = dict(root="modules")
 app: Client = None
 
 
+# HTTP Server for Render health checks
+class HealthCheckHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+        self.wfile.write(b'Miss Cherry is running')
+
+    def log_message(self, format, *args):
+        pass  # Suppress logs
+
+
+def run_http_server():
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(('0.0.0.0', port), HealthCheckHandler)
+    logger.info(f"✅ HTTP health check server started on port {port}")
+    server.serve_forever()
+
+
 async def main():
     global app
+
+    # Start HTTP server in background thread (keeps Render alive)
+    http_thread = threading.Thread(target=run_http_server, daemon=True)
+    http_thread.start()
+    logger.info("HTTP server thread started for Render health checks")
 
     app = Client(
         "MissCherry",
@@ -53,4 +80,4 @@ if __name__ == "__main__":
     print("╚══════════════════════════════════╝")
 
     asyncio.run(main())
-    
+
