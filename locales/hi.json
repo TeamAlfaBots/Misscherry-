@@ -1,0 +1,212 @@
+{
+  "start": {
+    "welcome": "Hey {name}! 👋\n\nMain hoon **Miss Cherry 🍒** Aapka smart Group Moderator Bot!\n\n/help tap karo saari features dekhne ke liye! ✨",
+    "group_welcome": "Hey {name}! 👋\nMain hoon **Miss Cherry 🍒** Aapka smart Group Moderator Bot!\nFeatures dekhne ke liye /help use karo! ✨"
+  },
+  "general": {
+    "not_admin": "❌ Aap admin nahi hain!",
+    "not_sudo": "❌ Sirf sudo users yeh use kar sakte hain!",
+    "not_owner": "❌ Sirf owner yeh use kar sakta hai!",
+    "no_user": "❌ Koi user specify karo (reply / @username / user_id).",
+    "user_not_found": "❌ User nahi mila.",
+    "cant_action_admin": "❌ Admin par yeh action nahi kar sakte!",
+    "only_creator": "❌ Sirf group creator yeh use kar sakta hai!",
+    "close": "✖️ Band kar diya."
+  },
+  "admin": {
+    "promoted": "✅ {name} ko **promote** kar diya gaya!",
+    "demoted": "✅ {name} ko **demote** kar diya gaya!",
+    "cache_updated": "✅ Admin cache update ho gaya!",
+    "adminlist_title": "👮 **Is chat ke Admins:**\n\n{list}",
+    "anon_updated": "⚙️ Anonymous admin setting update ho gayi!",
+    "error_updated": "⚙️ Admin error setting update ho gayi!"
+  },
+  "bans": {
+    "banned": "🔨 {name} ko **ban** kar diya gaya!",
+    "unbanned": "✅ {name} ko **unban** kar diya gaya!",
+    "muted": "🔇 {name} ko **mute** kar diya gaya!",
+    "unmuted": "✅ {name} ko **unmute** kar diya gaya!",
+    "kicked": "👢 {name} ko **kick** kar diya gaya!",
+    "tban": "⏱ {name} ko `{time}` ke liye **temp-ban** kar diya gaya.",
+    "tmute": "⏱ {name} ko `{time}` ke liye **temp-mute** kar diya gaya.",
+    "reason": "\n**Wajah:** {reason}",
+    "fail": "❌ Failed: {error}"
+  },
+  "antiflood": {
+    "disabled": "✅ Antiflood **band** kar diya gaya.",
+    "enabled": "✅ Antiflood **{limit}** messages par set kar diya gaya.",
+    "status_off": "❌ Antiflood **band** hai.",
+    "status_on": "✅ Antiflood **chalu** hai.\n• **Limit:** {limit} messages\n• **Action:** {mode}\n• **Flood msgs delete:** {clear}",
+    "mode_set": "✅ Flood action **{mode}** set kar diya gaya.",
+    "timer_set": "✅ Timed antiflood: **{count}** msgs **{duration}** mein.",
+    "timer_off": "✅ Timed antiflood **band** kar diya gaya.",
+    "clear_set": "✅ Flood messages delete: **{value}**.",
+    "triggered_ban": "🚫 {name} ko flood karne par **ban** kar diya gaya!",
+    "triggered_mute": "🔇 {name} ko flood karne par **mute** kar diya gaya!",
+    "triggered_kick": "👢 {name} ko flood karne par **kick** kar diya gaya!",
+    "triggered_tban": "⏱ {name} ko flood karne par **temp-ban** kar diya gaya!",
+    "triggered_tmute": "⏱ {name} ko flood karne par **temp-mute** kar diya gaya!"
+  },
+  "antiraid": {
+    "enabled": "🛡 AntiRaid **{duration}** ke liye **chalu** kar diya gaya!\nSab naye members temp-ban honge.",
+    "disabled": "✅ AntiRaid **band** kar diya gaya.",
+    "raidtime_set": "✅ Raid duration **{time}** set kar diya gaya.",
+    "actiontime_set": "✅ Raider ban duration **{time}** set kar diya gaya.",
+    "auto_set": "✅ Auto AntiRaid: **{joins}** join/minute par chalu hoga.",
+    "auto_off": "✅ Auto AntiRaid **band** kar diya gaya.",
+    "auto_triggered": "🚨 **Raid pakda gaya! AntiRaid automatic chalu ho gaya!**",
+    "current_raidtime": "⏱ Abhi ki raid duration: **{time}**",
+    "current_actiontime": "⏱ Raiders ka ban duration: **{time}**"
+  },
+  "approval": {
+    "approved_yes": "✅ {name} is chat mein **approved** hai.",
+    "approved_no": "❌ {name} is chat mein **approved nahi** hai.",
+    "approve_done": "✅ {name} ko **approve** kar diya gaya!\nLocks, blocklists aur antiflood unpar lagoo nahi honge.",
+    "unapprove_done": "✅ {name} ko **unapprove** kar diya gaya. Restrictions phir se lagoo honge.",
+    "approved_list": "✅ **Approved users:**\n\n{list}",
+    "approved_none": "📋 Is chat mein koi approved user nahi hai.",
+    "unapprove_all_done": "✅ Sab approved users ko **unapprove** kar diya gaya."
+  },
+  "blocklist": {
+    "added": "✅ `{trigger}` blocklist mein add kar diya gaya.",
+    "removed": "✅ `{trigger}` blocklist se remove kar diya gaya.",
+    "cleared": "✅ Sab blocklist triggers **saaf** kar diye gaye!",
+    "list_title": "🚫 **Blocklist triggers:**\n\n{list}",
+    "list_empty": "📋 Is chat mein koi blocklist trigger nahi hai.",
+    "mode_set": "✅ Blocklist mode **{mode}** set kar diya gaya.",
+    "delete_set": "✅ Blocklist delete: **{value}**.",
+    "reason_set": "✅ Default blocklist reason set kar diya gaya: `{reason}`",
+    "reason_reset": "✅ Default blocklist reason **reset** kar diya gaya."
+  },
+  "filters": {
+    "added": "✅ Filter `{trigger}` add kar diya gaya!",
+    "removed": "✅ Filter `{trigger}` remove kar diya gaya.",
+    "cleared": "✅ Sab filters **saaf** kar diye gaye!",
+    "list_title": "🔍 **Active Filters:**\n\n{list}",
+    "list_empty": "📋 Is chat mein koi filter nahi hai."
+  },
+  "greetings": {
+    "welcome_on": "✅ Welcome messages: **Chalu**.",
+    "welcome_off": "✅ Welcome messages: **Band**.",
+    "goodbye_on": "✅ Goodbye messages: **Chalu**.",
+    "goodbye_off": "✅ Goodbye messages: **Band**.",
+    "welcome_set": "✅ Welcome message update ho gaya!",
+    "welcome_reset": "✅ Welcome message default par reset ho gaya.",
+    "goodbye_set": "✅ Goodbye message update ho gaya!",
+    "goodbye_reset": "✅ Goodbye message default par reset ho gaya.",
+    "clean_on": "✅ Clean welcome: **Chalu**.",
+    "clean_off": "✅ Clean welcome: **Band**.",
+    "default_welcome": "👋 {mention} ka **{chatname}** mein swagat hai!",
+    "default_goodbye": "👋 {mention} ne **{chatname}** chod diya. Alvida!"
+  },
+  "language": {
+    "current": "🌐 Abhi ki bhasha: **{lang}**\n\nBhasha chuniye:",
+    "set": "✅ Bhasha **{lang}** set kar di gayi!",
+    "invalid": "❌ Galat bhasha. Buttons se chuniye."
+  },
+  "pin": {
+    "pinned": "📌 Message **pin** kar diya gaya!",
+    "unpinned": "✅ Message **unpin** kar diya gaya!",
+    "unpinned_all": "✅ Sab messages **unpin** kar diye gaye!",
+    "no_pinned": "📌 Is chat mein koi pinned message nahi hai.",
+    "antichannelpin_on": "✅ Anti-channel-pin: **Chalu**.",
+    "antichannelpin_off": "✅ Anti-channel-pin: **Band**.",
+    "cleanlinked_on": "✅ Linked channel messages delete: **Chalu**.",
+    "cleanlinked_off": "✅ Linked channel messages delete: **Band**.",
+    "no_reply": "❌ Pin karne ke liye kisi message ko reply karo."
+  },
+  "purge": {
+    "done": "✅ **{count}** messages delete kar diye gaye.",
+    "no_reply": "❌ Purge shuru karne ke liye kisi message ko reply karo.",
+    "purgefrom_set": "✅ Purge start mark ho gaya! Ab `/purgeto` use karo.",
+    "purgeto_no_from": "❌ Pehle `/purgefrom` use karo.",
+    "fail": "❌ Failed: {error}"
+  },
+  "report": {
+    "not_reply": "❌ Report karne ke liye kisi message ko reply karo.",
+    "cant_report_admin": "❌ Admin ko report nahi kar sakte.",
+    "reported": "🚨 **Message admins ko report kar diya gaya!**\n\n**Report kiya:** {user}\n**Admins:** {admins}",
+    "disabled": "ℹ️ Is chat mein reports band hain.",
+    "admin_cant_report": "ℹ️ Admins report command use nahi kar sakte.",
+    "reports_on": "✅ User reports: **Chalu**.",
+    "reports_off": "✅ User reports: **Band**."
+  },
+  "rules": {
+    "none": "📜 Is chat ke liye abhi koi rules set nahi hain.",
+    "title": "📜 **{chatname} ke Rules:**\n\n{rules}",
+    "set": "✅ Rules update ho gaye!",
+    "reset": "✅ Rules **reset** ho gaye.",
+    "private_on": "✅ Private rules: **Chalu**.",
+    "private_off": "✅ Private rules: **Band**.",
+    "sent_private": "📩 Rules aapko private mein bhej diye gaye!"
+  },
+  "warning": {
+    "warned": "⚠️ {name} ko **warning** mili! ({count}/{limit})\n**Wajah:** {reason}",
+    "limit_reached": "🚨 Warning limit aa gayi! Action: **{action}**",
+    "no_warns": "✅ {name} ko koi warning nahi hai.",
+    "warns_list": "⚠️ **{name} ki warnings** ({count}/{limit}):\n\n{list}",
+    "removed": "✅ {name} ki aakhri warning hata di gayi.",
+    "reset": "✅ {name} ki saari warnings **reset** ho gayi.",
+    "reset_all": "✅ Is chat ki saari warnings **saaf** kar di gayi!",
+    "settings": "⚙️ **Warning Settings:**\n\n• **Limit:** {limit}\n• **Action:** {mode}\n• **Expiry:** {time}",
+    "mode_set": "✅ Warn mode **{mode}** set kar diya gaya.",
+    "limit_set": "✅ Warn limit **{limit}** set kar diya gaya.",
+    "time_set": "✅ Warnings **{time}** baad expire hongi.",
+    "time_off": "✅ Warnings **kabhi expire nahi** hongi.",
+    "cant_warn_admin": "❌ Admin ko warn nahi kar sakte!"
+  },
+  "sudo": {
+    "added": "✅ {name} ko **sudo user** bana diya gaya!",
+    "removed": "✅ {name} ko sudo users se hata diya gaya.",
+    "already_owner": "ℹ️ Yeh user pehle se owner hai!",
+    "list_title": "🔑 **Sudo Users:**\n\n{list}",
+    "list_empty": "📋 Abhi tak koi sudo user add nahi kiya gaya."
+  },
+  "getlink": {
+    "no_chats": "📋 Database mein koi chat nahi mili.",
+    "no_permission": "Permission nahi",
+    "fail": "❌ Koi bhi chat link fetch nahi ho saka."
+  },
+  "chatbot": {
+    "on": "🤖 Chatbot **ON ✅** kar diya gaya!",
+    "off": "🤖 Chatbot **OFF ❌** kar diya gaya!",
+    "status_on": "🤖 Chatbot abhi: **ON ✅** hai",
+    "status_off": "🤖 Chatbot abhi: **OFF ❌** hai",
+    "error": "Arrey yaar, kuch gadbad ho gayi 😅"
+  },
+  "broadcast": {
+    "no_reply": "❌ Jis message ko broadcast karna hai usse **reply** karo.",
+    "started": "📡 Broadcasting ho raha hai... Thoda wait karo.",
+    "done": "✅ **Broadcast Complete!**\n\n• **Total:** {total}\n• **Success:** {success} ✅\n• **Failed:** {failed} ❌"
+  },
+  "games": {
+    "wordseek_start": "🔎 **Word Seek!**\n**{count}** chhupe hue words dhundo!\n\n`{grid}`\n\nWord bhejo guess karne ke liye!",
+    "wordseek_found": "✅ **{word}** mil gaya! {remaining} word(s) bache hain.",
+    "wordseek_win": "🎉 {name} ne sab words dhundh liye! **Game khatam!**",
+    "wordseek_stopped": "🛑 Word Seek game **band** kar diya gaya.",
+    "wordseek_skipped": "⏭ Word Seek puzzle **skip** kar diya gaya.",
+    "wordseek_answer": "📖 Chhupe hue words the: **{words}**",
+    "wordchain_start": "🔗 **Word Chain shuru!**\n\nPehla word: **{word}**\nAgla word **{letter}** se shuru hona chahiye!\n\nApna word bhejo!",
+    "wordchain_next": "✅ **{word}** — Agla word **{letter}** se shuru hona chahiye",
+    "wordchain_used": "❌ **{word}** pehle se use ho chuka hai! Doosra try karo.",
+    "wordchain_stopped": "🛑 Word Chain game **band** kar diya gaya.",
+    "hangman_start": "🙈 **Hangman shuru!**\n\n{display}\n\n`/guess <letter>` ya `/solve <word>` use karo!",
+    "hangman_win": "🎉 {name} ne guess kar liya! Word tha **{word}**!",
+    "hangman_lose": "💀 Game over! Word tha **{word}**.",
+    "hangman_stopped": "🛑 Hangman game **band** kar diya gaya.",
+    "wordle_start": "🟩 **Wordle!** **5-letter** word guess karo!\n\n🟩 Green = sahi jagah\n🟨 Yellow = galat jagah\n⬜ Gray = word mein nahi\n\n**6** mauke hain. `/guess <word>` use karo!",
+    "wordle_win": "🎉 {name} ne **{attempts}** try mein guess kar liya!\n\n{board}",
+    "wordle_lose": "💀 Game over! Word tha **{word}**.\n\n{board}",
+    "wordle_stopped": "🛑 Wordle game **band** kar diya gaya.",
+    "crossword_start": "🧩 **Crossword Puzzle!**\n\n{clues}\n\n`/answer <number> <word>` se jawab do!\nMisal: `/answer 1 apple`",
+    "crossword_correct": "✅ **{clue}** sahi hai: **{word}**!",
+    "crossword_wrong": "❌ **{clue}** ka jawab galat hai. Phir try karo!",
+    "crossword_win": "🎉 {name} ne crossword complete kar liya! 🧩",
+    "crossword_stopped": "🛑 Crossword game **band** kar diya gaya.",
+    "no_game": "❌ Koi active game nahi hai. Pehle shuru karo!",
+    "stats": "🎮 **{game} Stats:**\nKhele: {played} | Jeete: {won}"
+  },
+  "info": {
+    "title": "ℹ️ **Miss Cherry Info**\n\n❤️ ke saath banaya **AlfaBots** ne"
+  }
+}
