@@ -68,23 +68,39 @@ async def cb_start(client: Client, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("^help_menu$"))
 async def cb_help(client: Client, query: CallbackQuery):
-    await query.message.edit_text(
-        "📚 **Miss Cherry Help Menu**\n\nChoose a module:",
-        reply_markup=help_kb()
-    )
+    text = "📚 **Miss Cherry Help Menu**\n\nChoose a module:"
+    try:
+        if query.message.photo:
+            await query.message.edit_caption(caption=text, reply_markup=help_kb())
+        else:
+            await query.message.edit_text(text, reply_markup=help_kb())
+    except Exception as e:
+        print(f"[cb_help] Error: {e}")
 
 
 @Client.on_callback_query(filters.regex("^info_menu$"))
 async def cb_info(client: Client, query: CallbackQuery):
     text = await _(query.message.chat.id, "info.title")
-    await query.message.edit_text(text, reply_markup=info_kb())
+    try:
+        if query.message.photo:
+            await query.message.edit_caption(caption=text, reply_markup=info_kb())
+        else:
+            await query.message.edit_text(text, reply_markup=info_kb())
+    except Exception as e:
+        print(f"[cb_info] Error: {e}")
 
 
 @Client.on_callback_query(filters.regex("^lang_menu$"))
 async def cb_lang_menu(client: Client, query: CallbackQuery):
     chat_id = query.message.chat.id
     text = await _(chat_id, "language.current", lang="Current")
-    await query.message.edit_text(text, reply_markup=lang_kb())
+    try:
+        if query.message.photo:
+            await query.message.edit_caption(caption=text, reply_markup=lang_kb())
+        else:
+            await query.message.edit_text(text, reply_markup=lang_kb())
+    except Exception as e:
+        print(f"[cb_lang_menu] Error: {e}")
 
 
 @Client.on_callback_query(filters.regex(r"^setlang_(\w+)$"))
@@ -95,7 +111,13 @@ async def cb_setlang(client: Client, query: CallbackQuery):
     text = await _(chat_id, "language.set", lang=lang.upper())
     await query.answer(text, show_alert=False)
     new_text = await _(chat_id, "language.current", lang=lang.upper())
-    await query.message.edit_text(new_text, reply_markup=lang_kb())
+    try:
+        if query.message.photo:
+            await query.message.edit_caption(caption=new_text, reply_markup=lang_kb())
+        else:
+            await query.message.edit_text(new_text, reply_markup=lang_kb())
+    except Exception as e:
+        print(f"[cb_setlang] Error: {e}")
 
 
 @Client.on_callback_query(filters.regex("^close$"))
@@ -332,8 +354,18 @@ Miss Cherry chats with your members!
 async def cb_help_module(client: Client, query: CallbackQuery):
     module = query.data.replace("help_", "")
     text = HELP_TEXTS.get(module, "❌ Module not found.")
-    await query.message.edit_text(
-        text,
-        reply_markup=back_close_kb("help_menu"),
-        parse_mode="markdown"
-    )
+    try:
+        if query.message.photo:
+            await query.message.edit_caption(
+                caption=text,
+                reply_markup=back_close_kb("help_menu")
+            )
+        else:
+            await query.message.edit_text(
+                text,
+                reply_markup=back_close_kb("help_menu"),
+                parse_mode="markdown"
+            )
+    except Exception as e:
+        print(f"[cb_help_module] Error: {e}")
+        
