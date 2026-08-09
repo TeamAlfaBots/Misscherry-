@@ -1,0 +1,34 @@
+{
+  "start": {
+    "welcome": "Hey {name}! 👋\n\nHam hain **Miss Cherry 🍒** Raur smart Group Moderator Bot!\n\n/help dabaaw saari features dekhay ke! ✨",
+    "group_welcome": "Hey {name}! 👋\nHam hain **Miss Cherry 🍒** Raur smart Group Moderator Bot!\nFeatures dekhay ke /help use karaw! ✨"
+  },
+  "general": {
+    "not_admin": "❌ Raur admin naikhe!",
+    "not_sudo": "❌ Sirf sudo users ei use kar sake la!",
+    "not_owner": "❌ Sirf owner ei use kar sake la!",
+    "no_user": "❌ Kono user specify karaw (reply / @username / user_id).",
+    "user_not_found": "❌ User nahi milla.",
+    "cant_action_admin": "❌ Admin par ei action nahi kar sake la!",
+    "only_creator": "❌ Sirf group creator ei use kar sake la!",
+    "close": "✖️ Band kar diya."
+  },
+  "bans": {
+    "banned": "🔨 {name} ke **ban** kar diya gail!",
+    "unbanned": "✅ {name} ke **unban** kar diya gail!",
+    "muted": "🔇 {name} ke **mute** kar diya gail!",
+    "unmuted": "✅ {name} ke **unmute** kar diya gail!",
+    "kicked": "👢 {name} ke **kick** kar diya gail!",
+    "tban": "⏱ {name} ke `{time}` ke liye **temp-ban** kar diya gail.",
+    "tmute": "⏱ {name} ke `{time}` ke liye **temp-mute** kar diya gail.",
+    "reason": "\n**Kaaran:** {reason}",
+    "fail": "❌ Failed: {error}"
+  },
+  "chatbot": {
+    "on": "🤖 Chatbot **ON ✅** kar diya gail!",
+    "off": "🤖 Chatbot **OFF ❌** kar diya gail!",
+    "status_on": "🤖 Chatbot abhi: **ON ✅** ba",
+    "status_off": "🤖 Chatbot abhi: **OFF ❌** ba",
+    "error": "Arrey bhai, kuch gadbad ho gail 😅"
+  }
+}
