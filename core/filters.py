@@ -56,6 +56,26 @@ async def _admin_check(_, client, message: Message) -> bool:
     return False
 
 
+async def _can_promote_check(_, client, message: Message) -> bool:
+    if not message.from_user:
+        return False
+    if message.from_user.id in cfg.OWNER_ID:
+        return True
+    sudos = await get_sudos()
+    if message.from_user.id in sudos:
+        return True
+    try:
+        member = await client.get_chat_member(message.chat.id, message.from_user.id)
+        if member.status == "creator":
+            return True
+        if member.status == "administrator" and member.privileges:
+            return bool(member.privileges.can_promote_members)
+        return False
+    except Exception:
+        return False
+
+
 owner_filter = filters.create(_owner_check, "OwnerFilter")
 sudo_filter  = filters.create(_sudo_check,  "SudoFilter")
 admin_filter = filters.create(_admin_check, "AdminFilter")
+can_promote_filter = filters.create(_can_promote_check, "CanPromoteFilter")
