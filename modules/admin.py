@@ -6,6 +6,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, ChatPrivileges
 from core.filters import admin_filter
 from core.translator import _
+from core.database import get_chat_settings, set_chat_setting
 from utils.helpers import get_target_user, mention
 
 
@@ -69,14 +70,39 @@ async def cmd_adminlist(client: Client, message: Message):
 
 @Client.on_message(filters.command("admincache") & ~filters.private & admin_filter)
 async def cmd_admincache(client: Client, message: Message):
-    await message.reply(await _(message.chat.id, "admin.cache_updated"))
+    count = 0
+    async for member in client.get_chat_members(message.chat.id, filter="administrators"):
+        count += 1
+    await message.reply(await _(message.chat.id, "admin.cache_updated", count=count))
 
 
 @Client.on_message(filters.command("anonadmin") & ~filters.private & admin_filter)
 async def cmd_anonadmin(client: Client, message: Message):
-    await message.reply(await _(message.chat.id, "admin.anon_updated"))
+    args = message.text.split(None, 1)
+    settings = await get_chat_settings(message.chat.id)
+    current = settings.get("anon_admin", False)
+
+    if len(args) > 1 and args[1].lower() in ("on", "off"):
+        new_value = args[1].lower() == "on"
+    else:
+        new_value = not current
+
+    await set_chat_setting(message.chat.id, "anon_admin", new_value)
+    state = await _(message.chat.id, "general.enabled" if new_value else "general.disabled")
+    await message.reply(await _(message.chat.id, "admin.anon_updated", state=state))
 
 
 @Client.on_message(filters.command("adminerror") & ~filters.private & admin_filter)
 async def cmd_adminerror(client: Client, message: Message):
-    await message.reply(await _(message.chat.id, "admin.error_updated"))
+    args = message.text.split(None, 1)
+    settings = await get_chat_settings(message.chat.id)
+    current = settings.get("adminerror", False)
+
+    if len(args) > 1 and args[1].lower() in ("on", "off"):
+        new_value = args[1].lower() == "on"
+    else:
+        new_value = not current
+
+    await set_chat_setting(message.chat.id, "adminerror", new_value)
+    state = await _(message.chat.id, "general.enabled" if new_value else "general.disabled")
+    await message.reply(await _(message.chat.id, "admin.error_updated", state=state))
