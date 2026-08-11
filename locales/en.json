@@ -1,6 +1,6 @@
 {
   "start": {
-    "welcome": "Hey {name}! 👋\n\nI am **Miss Cherry 🍒** Your smart Group Moderator Bot!\n\nTap /help to see all my features! ✨",
+    "welcome": "👋 ᴡєʟᴄσϻє {name}! 👋\n\nɪ ᴧϻ ᴍɪꜱꜱ ᴄʜєʀʀʏ 🍒, ᴧη ᴧᴅᴠᴧηᴄєᴅ ᴛєʟєɢʀᴧϻ ɢʀσᴜᴘ ᴍᴧηᴧɢєϻєηᴛ ʙσᴛ.\n\nᴛᴧᴘ /help ᴛσ єxᴘʟσʀє ϻʏ ꜰєᴧᴛᴜʀєꜱ ᴧηᴅ ᴄσϻϻᴧηᴅꜱ. ✨",
     "group_welcome": "Hey {name}! 👋\nI am **Miss Cherry 🍒** Your smart Group Moderator Bot!\nUse /help to see all features! ✨"
   },
   "general": {
