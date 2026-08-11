@@ -43,38 +43,38 @@ def info_kb() -> InlineKeyboardMarkup:
 def help_kb() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([
         [
-            InlineKeyboardButton("👮 Admin",     callback_data="help_admin"),
-            InlineKeyboardButton("🌊 Antiflood", callback_data="help_antiflood"),
-            InlineKeyboardButton("🛡 AntiRaid",  callback_data="help_antiraid"),
+            InlineKeyboardButton("👮 Admin",     callback_data="help_admin", style=ButtonStyle.DANGER),
+            InlineKeyboardButton("🌊 Antiflood", callback_data="help_antiflood", style=ButtonStyle.DANGER),
+            InlineKeyboardButton("🛡 AntiRaid",  callback_data="help_antiraid", style=ButtonStyle.DANGER),
         ],
         [
-            InlineKeyboardButton("✅ Approval",  callback_data="help_approval", style=ButtonStyle.SUCCESS),
-            InlineKeyboardButton("🔨 Bans",      callback_data="help_bans", style=ButtonStyle.DANGER),
-            InlineKeyboardButton("🚫 Blocklist", callback_data="help_blocklist", style=ButtonStyle.DANGER),
+            InlineKeyboardButton("✅ Approval",  callback_data="help_approval", style=ButtonStyle.PRIMARY),
+            InlineKeyboardButton("🔨 Bans",      callback_data="help_bans", style=ButtonStyle.PRIMARY),
+            InlineKeyboardButton("🚫 Blocklist", callback_data="help_blocklist", style=ButtonStyle.PRIMARY),
         ],
         [
-            InlineKeyboardButton("🔍 Filters",   callback_data="help_filters"),
+            InlineKeyboardButton("🔍 Filters",   callback_data="help_filters", style=ButtonStyle.SUCCESS),
             InlineKeyboardButton("👋 Greetings", callback_data="help_greetings", style=ButtonStyle.SUCCESS),
-            InlineKeyboardButton("🌐 Language",  callback_data="help_language"),
+            InlineKeyboardButton("🌐 Language",  callback_data="help_language", style=ButtonStyle.SUCCESS),
         ],
         [
-            InlineKeyboardButton("📌 Pin",       callback_data="help_pin"),
+            InlineKeyboardButton("📌 Pin",       callback_data="help_pin", style=ButtonStyle.DANGER),
             InlineKeyboardButton("🗑 Purge",     callback_data="help_purge", style=ButtonStyle.DANGER),
             InlineKeyboardButton("🚨 Report",    callback_data="help_report", style=ButtonStyle.DANGER),
         ],
         [
-            InlineKeyboardButton("📜 Rules",     callback_data="help_rules"),
-            InlineKeyboardButton("⚠️ Warning",   callback_data="help_warning", style=ButtonStyle.DANGER),
+            InlineKeyboardButton("📜 Rules",     callback_data="help_rules", style=ButtonStyle.PRIMARY),
+            InlineKeyboardButton("⚠️ Warning",   callback_data="help_warning", style=ButtonStyle.PRIMARY),
             InlineKeyboardButton("🔑 Sudo",      callback_data="help_sudo", style=ButtonStyle.PRIMARY),
         ],
         [
-            InlineKeyboardButton("🤖 Chatbot",   callback_data="help_chatbot", style=ButtonStyle.PRIMARY),
+            InlineKeyboardButton("🤖 Chatbot",   callback_data="help_chatbot", style=ButtonStyle.SUCCESS),
         ],
         [
-            InlineKeyboardButton("📖 Miss Cherry Docs", url=cfg.DOCS_URL, style=ButtonStyle.PRIMARY),
+            InlineKeyboardButton("📖 Miss Cherry Docs", url=cfg.DOCS_URL, style=ButtonStyle.SUCCESS),
         ],
         [
-            InlineKeyboardButton("◀️ Back", callback_data="start_menu"),
+            InlineKeyboardButton("◀️ Back", callback_data="start_menu", style=ButtonStyle.PRIMARY),
             InlineKeyboardButton("✖️ Close", callback_data="close", style=ButtonStyle.DANGER),
         ],
     ])
