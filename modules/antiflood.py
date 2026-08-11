@@ -11,7 +11,7 @@ from core.database import (
     set_flood, get_flood, set_flood_mode,
     set_flood_timer, set_clear_flood, is_approved
 )
-from utils.time_parser import parse_time
+from utils.time_parser import parse_time, seconds_to_str
 from utils.chat_helpers import apply_action
 
 flood_data: dict = {}
@@ -20,12 +20,27 @@ flood_data: dict = {}
 @Client.on_message(filters.command("flood") & ~filters.private)
 async def cmd_flood_status(client: Client, message: Message):
     data = await get_flood(message.chat.id)
+    timer_count = data.get("timer_count", 0)
+    timer_duration = data.get("timer_duration", 0)
     limit = data.get("limit", 0)
-    if not limit:
+
+    if not limit and not (timer_count and timer_duration):
         return await message.reply(await _(message.chat.id, "antiflood.status_off"))
+
     mode = data.get("mode", "ban")
     clear = "Yes" if data.get("clear", True) else "No"
-    await message.reply(await _(message.chat.id, "antiflood.status_on", limit=limit, mode=mode, clear=clear))
+
+    if timer_count and timer_duration:
+        window = seconds_to_str(timer_duration)
+        await message.reply(
+            await _(message.chat.id, "antiflood.status_on",
+                    limit=f"{timer_count} (in {window})", mode=mode, clear=clear)
+        )
+    else:
+        await message.reply(
+            await _(message.chat.id, "antiflood.status_on",
+                    limit=f"{limit} (in 5s)", mode=mode, clear=clear)
+        )
 
 
 @Client.on_message(filters.command("setflood") & ~filters.private & admin_filter)
@@ -40,6 +55,7 @@ async def cmd_setflood(client: Client, message: Message):
     if not val.isdigit():
         return await message.reply("❌ Provide a valid number.")
     await set_flood(message.chat.id, int(val))
+    await set_flood_timer(message.chat.id, 0, 0)  # clear any timer override
     await message.reply(await _(message.chat.id, "antiflood.enabled", limit=val))
 
 
@@ -88,14 +104,25 @@ async def track_flood(client: Client, message: Message):
     if await is_approved(chat_id, user_id):
         return
     data = await get_flood(chat_id)
-    limit = data.get("limit", 0)
+
+    # A timer-based limit (set via /setfloodtimer) overrides the plain
+    # /setflood limit when configured.
+    timer_count = data.get("timer_count", 0)
+    timer_duration = data.get("timer_duration", 0)
+    if timer_count and timer_duration:
+        limit = timer_count
+        window = timer_duration
+    else:
+        limit = data.get("limit", 0)
+        window = 5
+
     if not limit:
         return
     now = time.time()
     if chat_id not in flood_data:
         flood_data[chat_id] = {}
     ud = flood_data[chat_id].get(user_id, {"count": 0, "last": now})
-    if now - ud["last"] > 5:
+    if now - ud["last"] > window:
         ud = {"count": 1, "last": now}
     else:
         ud["count"] += 1
