@@ -83,19 +83,19 @@ def help_kb() -> InlineKeyboardMarkup:
 def lang_kb() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([
         [
-            InlineKeyboardButton("🇬🇧 English",   callback_data="setlang_en"),
-            InlineKeyboardButton("🇮🇳 हिन्दी",     callback_data="setlang_hi"),
+            InlineKeyboardButton("🇬🇧 English",   callback_data="setlang_en", style=ButtonStyle.SUCCESS),
+            InlineKeyboardButton("🇮🇳 हिन्दी",     callback_data="setlang_hi", style=ButtonStyle.SUCCESS),
         ],
         [
-            InlineKeyboardButton("🇮🇳 Bhojpuri",  callback_data="setlang_bh"),
-            InlineKeyboardButton("🇮🇳 தமிழ்",      callback_data="setlang_ta"),
+            InlineKeyboardButton("🇮🇳 Bhojpuri",  callback_data="setlang_bh", style=ButtonStyle.SUCCESS),
+            InlineKeyboardButton("🇮🇳 தமிழ்",      callback_data="setlang_ta", style=ButtonStyle.SUCCESS),
         ],
         [
-            InlineKeyboardButton("🇸🇦 العربية",    callback_data="setlang_ar"),
-            InlineKeyboardButton("🇷🇺 Русский",    callback_data="setlang_ru"),
+            InlineKeyboardButton("🇸🇦 العربية",    callback_data="setlang_ar", style=ButtonStyle.SUCCESS),
+            InlineKeyboardButton("🇷🇺 Русский",    callback_data="setlang_ru", style=ButtonStyle.SUCCESS),
         ],
         [
-            InlineKeyboardButton("◀️ Back", callback_data="start_menu"),
+            InlineKeyboardButton("◀️ Back", callback_data="start_menu", style=ButtonStyle.PRIMARY),
             InlineKeyboardButton("✖️ Close", callback_data="close", style=ButtonStyle.DANGER),
         ],
     ])
@@ -103,12 +103,12 @@ def lang_kb() -> InlineKeyboardMarkup:
 
 def back_close_kb(back_data: str = "help_menu") -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([[
-        InlineKeyboardButton("◀️ Back", callback_data=back_data),
+        InlineKeyboardButton("◀️ Back", callback_data=back_data", style=ButtonStyle.PRIMARY),
         InlineKeyboardButton("✖️ Close", callback_data="close", style=ButtonStyle.DANGER),
     ]])
 
 
 def back_kb(back_data: str = "help_menu") -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([[
-        InlineKeyboardButton("◀️ Back", callback_data=back_data),
+        InlineKeyboardButton("◀️ Back", callback_data=back_data", style=ButtonStyle.PRIMARY),
     ]])
