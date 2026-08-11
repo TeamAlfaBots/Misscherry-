@@ -11,15 +11,15 @@ from core.config import cfg
 def start_kb() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([
         [
-            InlineKeyboardButton("🆘 Support", url=cfg.SUPPORT_LINK, style=ButtonStyle.PRIMARY),
+            InlineKeyboardButton("📨 Support", url=cfg.SUPPORT_LINK, style=ButtonStyle.PRIMARY),
             InlineKeyboardButton("📢 Updates", url=cfg.UPDATE_LINK, style=ButtonStyle.PRIMARY),
         ],
         [
             InlineKeyboardButton("❓ Help & Commands", callback_data="help_menu", style=ButtonStyle.SUCCESS),
         ],
         [
-            InlineKeyboardButton("🌐 Language", callback_data="lang_menu"),
-            InlineKeyboardButton("ℹ️ Info", callback_data="info_menu"),
+            InlineKeyboardButton("🌐 Language", callback_data="lang_menu", style=ButtonStyle.DANGER),
+            InlineKeyboardButton("🪧 Info", callback_data="info_menu", style=ButtonStyle.DANGER),
         ],
     ])
 
