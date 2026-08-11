@@ -13,14 +13,22 @@ def mention(user) -> str:
 async def get_target_user(client, message: Message):
     """
     Returns (user, reason) from reply / mention / user_id.
+    Raises ValueError with a clear message if the replied-to account
+    has been deleted (Telegram discards its identity, so it can
+    never be resolved — this is a hard limitation, not a bug).
     """
     reason = ""
 
-    if message.reply_to_message and message.reply_to_message.from_user:
-        user = message.reply_to_message.from_user
-        parts = message.text.split(None, 1)
-        reason = parts[1] if len(parts) > 1 else ""
-        return user, reason
+    if message.reply_to_message:
+        if message.reply_to_message.from_user:
+            user = message.reply_to_message.from_user
+            parts = message.text.split(None, 1)
+            reason = parts[1] if len(parts) > 1 else ""
+            return user, reason
+        elif message.reply_to_message.sender_chat is None:
+            # No from_user AND no sender_chat on a real message almost
+            # always means the account has been deleted.
+            raise ValueError("deleted_account")
 
     args = message.text.split(None, 2)
     if len(args) < 2:
