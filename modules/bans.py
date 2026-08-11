@@ -11,9 +11,24 @@ from utils.chat_helpers import do_ban, do_unban, do_kick, do_mute, do_unmute, tb
 from utils.log_reporter import log_action
 
 
+async def _resolve_target(message: Message, client: Client):
+    """Wraps get_target_user, turning the deleted-account case into a
+    clear reply instead of letting a generic error surface."""
+    try:
+        return await get_target_user(client, message)
+    except ValueError:
+        await message.reply(
+            "❌ That account has been deleted on Telegram, so it can't "
+            "be targeted anymore."
+        )
+        return None, None
+
+
 @Client.on_message(filters.command(["ban", "dban", "sban"]) & ~filters.private & admin_filter)
 async def cmd_ban(client: Client, message: Message):
-    user, reason = await get_target_user(client, message)
+    user, reason = await _resolve_target(message, client)
+    if reason is None:
+        return  # deleted-account message already sent
     if not user:
         return await message.reply(await _(message.chat.id, "general.no_user"))
     cmd = message.command[0]
@@ -35,7 +50,9 @@ async def cmd_ban(client: Client, message: Message):
 
 @Client.on_message(filters.command("tban") & ~filters.private & admin_filter)
 async def cmd_tban(client: Client, message: Message):
-    user, time_str = await get_target_user(client, message)
+    user, time_str = await _resolve_target(message, client)
+    if time_str is None:
+        return
     if not user:
         return await message.reply(await _(message.chat.id, "general.no_user"))
     time_str = time_str.split()[0] if time_str else "1h"
@@ -50,7 +67,9 @@ async def cmd_tban(client: Client, message: Message):
 
 @Client.on_message(filters.command("unban") & ~filters.private & admin_filter)
 async def cmd_unban(client: Client, message: Message):
-    user, reason = await get_target_user(client, message)
+    user, reason = await _resolve_target(message, client)
+    if reason is None:
+        return
     if not user:
         return await message.reply(await _(message.chat.id, "general.no_user"))
     try:
@@ -63,7 +82,9 @@ async def cmd_unban(client: Client, message: Message):
 
 @Client.on_message(filters.command(["mute", "dmute", "smute"]) & ~filters.private & admin_filter)
 async def cmd_mute(client: Client, message: Message):
-    user, reason = await get_target_user(client, message)
+    user, reason = await _resolve_target(message, client)
+    if reason is None:
+        return
     if not user:
         return await message.reply(await _(message.chat.id, "general.no_user"))
     cmd = message.command[0]
@@ -85,7 +106,9 @@ async def cmd_mute(client: Client, message: Message):
 
 @Client.on_message(filters.command("tmute") & ~filters.private & admin_filter)
 async def cmd_tmute(client: Client, message: Message):
-    user, time_str = await get_target_user(client, message)
+    user, time_str = await _resolve_target(message, client)
+    if time_str is None:
+        return
     if not user:
         return await message.reply(await _(message.chat.id, "general.no_user"))
     time_str = time_str.split()[0] if time_str else "1h"
@@ -100,7 +123,9 @@ async def cmd_tmute(client: Client, message: Message):
 
 @Client.on_message(filters.command("unmute") & ~filters.private & admin_filter)
 async def cmd_unmute(client: Client, message: Message):
-    user, reason = await get_target_user(client, message)
+    user, reason = await _resolve_target(message, client)
+    if reason is None:
+        return
     if not user:
         return await message.reply(await _(message.chat.id, "general.no_user"))
     try:
@@ -113,7 +138,9 @@ async def cmd_unmute(client: Client, message: Message):
 
 @Client.on_message(filters.command(["kick", "dkick", "skick"]) & ~filters.private & admin_filter)
 async def cmd_kick(client: Client, message: Message):
-    user, reason = await get_target_user(client, message)
+    user, reason = await _resolve_target(message, client)
+    if reason is None:
+        return
     if not user:
         return await message.reply(await _(message.chat.id, "general.no_user"))
     cmd = message.command[0]
