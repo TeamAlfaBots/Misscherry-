@@ -1,0 +1,214 @@
+{
+  "start": {
+    "welcome": "👋 ᴡєʟᴄσϻє {name}! 👋\n\nɪ ᴧϻ ᴍɪꜱꜱ ᴄʜєʀʀʏ 🍒, ᴧη ᴧᴅᴠᴧηᴄєᴅ ᴛєʟєɢʀᴧϻ ɢʀσᴜᴘ ᴍᴧηᴧɢєϻєηᴛ ʙσᴛ.\n\nᴛᴧᴘ /help ᴛσ єxᴘʟσʀє ϻʏ ꜰєᴧᴛᴜʀєꜱ ᴧηᴅ ᴄσϻϻᴧηᴅꜱ. ✨",
+    "group_welcome": "Hey {name}! 👋\nI am **Miss Cherry 🍒** Your smart Group Moderator Bot!\nUse /help to see all features! ✨"
+  },
+  "general": {
+    "not_admin": "❌ You are not an admin!",
+    "not_sudo": "❌ Only sudo users can use this!",
+    "not_owner": "❌ Only the owner can use this!",
+    "no_user": "❌ Specify a user (reply / @username / user_id).",
+    "user_not_found": "❌ User not found.",
+    "cant_action_admin": "❌ Cannot perform this action on an admin!",
+    "only_creator": "❌ Only the group creator can use this!",
+    "close": "✖️ Closed.",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "admin": {
+    "promoted": "✅ {name} has been **promoted**!",
+    "demoted": "✅ {name} has been **demoted**!",
+    "cache_updated": "✅ Admin cache refreshed! ({count} admins found)",
+    "adminlist_title": "👮 **Admins in this chat:**\n\n{list}",
+    "anon_updated": "⚙️ Anonymous admin mode: **{state}**",
+    "error_updated": "⚙️ Admin-only error messages: **{state}**"
+  },
+  "bans": {
+    "banned": "🔨 {name} has been **banned**!",
+    "unbanned": "✅ {name} has been **unbanned**!",
+    "muted": "🔇 {name} has been **muted**!",
+    "unmuted": "✅ {name} has been **unmuted**!",
+    "kicked": "👢 {name} has been **kicked**!",
+    "tban": "⏱ {name} has been **temp-banned** for `{time}`.",
+    "tmute": "⏱ {name} has been **temp-muted** for `{time}`.",
+    "reason": "\n**Reason:** {reason}",
+    "fail": "❌ Failed: {error}"
+  },
+  "antiflood": {
+    "disabled": "✅ Antiflood has been **disabled**.",
+    "enabled": "✅ Antiflood set to **{limit}** messages.",
+    "status_off": "❌ Antiflood is **disabled**.",
+    "status_on": "✅ Antiflood is **enabled**.\n• **Limit:** {limit} messages\n• **Action:** {mode}\n• **Delete flood msgs:** {clear}",
+    "mode_set": "✅ Flood action set to **{mode}**.",
+    "timer_set": "✅ Timed antiflood: **{count}** msgs in **{duration}**.",
+    "timer_off": "✅ Timed antiflood **disabled**.",
+    "clear_set": "✅ Delete flood messages: **{value}**.",
+    "triggered_ban": "🚫 {name} was **banned** for flooding!",
+    "triggered_mute": "🔇 {name} was **muted** for flooding!",
+    "triggered_kick": "👢 {name} was **kicked** for flooding!",
+    "triggered_tban": "⏱ {name} was **temp-banned** for flooding!",
+    "triggered_tmute": "⏱ {name} was **temp-muted** for flooding!"
+  },
+  "antiraid": {
+    "enabled": "🛡 AntiRaid **enabled** for **{duration}**!\nAll new joins will be temp-banned.",
+    "disabled": "✅ AntiRaid has been **disabled**.",
+    "raidtime_set": "✅ Raid duration set to **{time}**.",
+    "actiontime_set": "✅ Raider ban duration set to **{time}**.",
+    "auto_set": "✅ Auto AntiRaid: triggers if **{joins}** users join in under 1 minute.",
+    "auto_off": "✅ Auto AntiRaid **disabled**.",
+    "auto_triggered": "🚨 **Raid detected! AntiRaid has been automatically enabled!**",
+    "current_raidtime": "⏱ Current raid duration: **{time}**",
+    "current_actiontime": "⏱ Current ban duration for raiders: **{time}**"
+  },
+  "approval": {
+    "approved_yes": "✅ {name} is **approved** in this chat.",
+    "approved_no": "❌ {name} is **not approved** in this chat.",
+    "approve_done": "✅ {name} has been **approved**!\nLocks, blocklists & antiflood won't apply.",
+    "unapprove_done": "✅ {name} has been **unapproved**. Restrictions apply again.",
+    "approved_list": "✅ **Approved users:**\n\n{list}",
+    "approved_none": "📋 No approved users in this chat.",
+    "unapprove_all_done": "✅ All approved users have been **unapproved**."
+  },
+  "blocklist": {
+    "added": "✅ Added `{trigger}` to the blocklist.",
+    "removed": "✅ Removed `{trigger}` from the blocklist.",
+    "cleared": "✅ All blocklist triggers have been **cleared**!",
+    "list_title": "🚫 **Blocklist triggers:**\n\n{list}",
+    "list_empty": "📋 No blocklist triggers in this chat.",
+    "mode_set": "✅ Blocklist mode set to **{mode}**.",
+    "delete_set": "✅ Blocklist delete: **{value}**.",
+    "reason_set": "✅ Default blocklist reason set to: `{reason}`",
+    "reason_reset": "✅ Default blocklist reason **reset**."
+  },
+  "filters": {
+    "added": "✅ Filter `{trigger}` has been added!",
+    "removed": "✅ Filter `{trigger}` has been removed.",
+    "cleared": "✅ All filters have been **cleared**!",
+    "list_title": "🔍 **Active Filters:**\n\n{list}",
+    "list_empty": "📋 No filters in this chat."
+  },
+  "greetings": {
+    "welcome_on": "✅ Welcome messages: **Enabled**.",
+    "welcome_off": "✅ Welcome messages: **Disabled**.",
+    "goodbye_on": "✅ Goodbye messages: **Enabled**.",
+    "goodbye_off": "✅ Goodbye messages: **Disabled**.",
+    "welcome_set": "✅ Welcome message updated!",
+    "welcome_reset": "✅ Welcome message reset to default.",
+    "goodbye_set": "✅ Goodbye message updated!",
+    "goodbye_reset": "✅ Goodbye message reset to default.",
+    "clean_on": "✅ Clean welcome: **Enabled**.",
+    "clean_off": "✅ Clean welcome: **Disabled**.",
+    "default_welcome": "👋 Welcome {mention} to **{chatname}**!",
+    "default_goodbye": "👋 {mention} has left **{chatname}**. Goodbye!"
+  },
+  "language": {
+    "current": "🌐 Current language: **{lang}**\n\nChoose a language:",
+    "set": "✅ Language set to **{lang}**!",
+    "invalid": "❌ Invalid language. Please choose from the buttons."
+  },
+  "pin": {
+    "pinned": "📌 Message **pinned**!",
+    "unpinned": "✅ Message **unpinned**!",
+    "unpinned_all": "✅ All messages **unpinned**!",
+    "no_pinned": "📌 No pinned message in this chat.",
+    "antichannelpin_on": "✅ Anti-channel-pin: **Enabled**.",
+    "antichannelpin_off": "✅ Anti-channel-pin: **Disabled**.",
+    "cleanlinked_on": "✅ Clean linked channel messages: **Enabled**.",
+    "cleanlinked_off": "✅ Clean linked channel messages: **Disabled**.",
+    "no_reply": "❌ Reply to a message to pin it."
+  },
+  "purge": {
+    "done": "✅ Purged **{count}** messages.",
+    "no_reply": "❌ Reply to a message to start purge from.",
+    "purgefrom_set": "✅ Purge start marked! Now use `/purgeto` to finish.",
+    "purgeto_no_from": "❌ Use `/purgefrom` first to mark the starting message.",
+    "fail": "❌ Failed: {error}"
+  },
+  "report": {
+    "not_reply": "❌ Reply to a message to report it.",
+    "cant_report_admin": "❌ Cannot report an admin.",
+    "reported": "🚨 **Message reported to admins!**\n\n**Reported by:** {user}\n**Admins notified:** {admins}",
+    "disabled": "ℹ️ Reports are disabled in this chat.",
+    "admin_cant_report": "ℹ️ Admins cannot use the report command.",
+    "reports_on": "✅ User reports: **Enabled**.",
+    "reports_off": "✅ User reports: **Disabled**."
+  },
+  "rules": {
+    "none": "📜 No rules set for this chat yet.",
+    "title": "📜 **Rules for {chatname}:**\n\n{rules}",
+    "set": "✅ Rules have been updated!",
+    "reset": "✅ Rules have been **reset**.",
+    "private_on": "✅ Private rules: **Enabled**.",
+    "private_off": "✅ Private rules: **Disabled**.",
+    "sent_private": "📩 Rules have been sent to you in private!"
+  },
+  "warning": {
+    "warned": "⚠️ {name} has been **warned**! ({count}/{limit})\n**Reason:** {reason}",
+    "limit_reached": "🚨 Warn limit reached! Action: **{action}**",
+    "no_warns": "✅ {name} has no warnings.",
+    "warns_list": "⚠️ **{name}'s warnings** ({count}/{limit}):\n\n{list}",
+    "removed": "✅ Removed {name}'s last warning.",
+    "reset": "✅ {name}'s warnings have been **reset**.",
+    "reset_all": "✅ All warnings in this chat have been **cleared**!",
+    "settings": "⚙️ **Warning Settings:**\n\n• **Limit:** {limit}\n• **Action:** {mode}\n• **Expiry:** {time}",
+    "mode_set": "✅ Warn mode set to **{mode}**.",
+    "limit_set": "✅ Warn limit set to **{limit}**.",
+    "time_set": "✅ Warnings will expire after **{time}**.",
+    "time_off": "✅ Warnings will **never expire**.",
+    "cant_warn_admin": "❌ Cannot warn an admin!"
+  },
+  "sudo": {
+    "added": "✅ {name} has been added as a **sudo user**!",
+    "removed": "✅ {name} has been removed from sudo users.",
+    "already_owner": "ℹ️ This user is already an owner!",
+    "list_title": "🔑 **Sudo Users:**\n\n{list}",
+    "list_empty": "📋 No sudo users added yet."
+  },
+  "getlink": {
+    "no_chats": "📋 No chats found in database.",
+    "no_permission": "No permission",
+    "fail": "❌ Could not fetch any chat links."
+  },
+  "chatbot": {
+    "on": "🤖 Chatbot turned **ON ✅**!",
+    "off": "🤖 Chatbot turned **OFF ❌**!",
+    "status_on": "🤖 Chatbot is currently: **ON ✅**",
+    "status_off": "🤖 Chatbot is currently: **OFF ❌**",
+    "error": "Arrey yaar, kuch gadbad ho gayi 😅"
+  },
+  "broadcast": {
+    "no_reply": "❌ Please **reply** to the message you want to broadcast.",
+    "started": "📡 Broadcasting... Please wait.",
+    "done": "✅ **Broadcast Complete!**\n\n• **Total:** {total}\n• **Success:** {success} ✅\n• **Failed:** {failed} ❌"
+  },
+  "games": {
+    "wordseek_start": "🔎 **Word Seek!**\nFind the **{count}** hidden words!\n\n`{grid}`\n\nSend a word to guess it!",
+    "wordseek_found": "✅ **{word}** found! {remaining} word(s) remaining.",
+    "wordseek_win": "🎉 {name} found all the words! **Game over!**",
+    "wordseek_stopped": "🛑 Word Seek game **stopped**.",
+    "wordseek_skipped": "⏭ Word Seek puzzle **skipped**.",
+    "wordseek_answer": "📖 The hidden words were: **{words}**",
+    "wordchain_start": "🔗 **Word Chain started!**\n\nStarting word: **{word}**\nNext word must start with: **{letter}**\n\nType your word!",
+    "wordchain_next": "✅ **{word}** — Next word must start with **{letter}**",
+    "wordchain_used": "❌ **{word}** already used! Try another.",
+    "wordchain_stopped": "🛑 Word Chain game **stopped**.",
+    "hangman_start": "🙈 **Hangman started!**\n\n{display}\n\nUse `/guess <letter>` or `/solve <word>`!",
+    "hangman_win": "🎉 {name} solved it! The word was **{word}**!",
+    "hangman_lose": "💀 Game over! The word was **{word}**.",
+    "hangman_stopped": "🛑 Hangman game **stopped**.",
+    "wordle_start": "🟩 **Wordle!** Guess the **5-letter** word!\n\n🟩 Green = correct position\n🟨 Yellow = wrong position\n⬜ Gray = not in word\n\nYou have **6** attempts. Use `/guess <word>`!",
+    "wordle_win": "🎉 {name} guessed it in **{attempts}** tries!\n\n{board}",
+    "wordle_lose": "💀 Game over! The word was **{word}**.\n\n{board}",
+    "wordle_stopped": "🛑 Wordle game **stopped**.",
+    "crossword_start": "🧩 **Crossword Puzzle!**\n\n{clues}\n\nUse `/answer <number> <word>` to answer!\nExample: `/answer 1 apple`",
+    "crossword_correct": "✅ **{clue}** is correct: **{word}**!",
+    "crossword_wrong": "❌ Wrong answer for **{clue}**. Try again!",
+    "crossword_win": "🎉 {name} completed the crossword! 🧩",
+    "crossword_stopped": "🛑 Crossword game **stopped**.",
+    "no_game": "❌ No active game. Start one first!",
+    "stats": "🎮 **{game} Stats:**\nPlayed: {played} | Won: {won}"
+  },
+  "info": {
+    "title": "ℹ️ **Miss Cherry Info**\n\nMade with ❤️ by **AlfaBots**"
+  }
+}
