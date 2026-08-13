@@ -1,6 +1,0 @@
-pyrotgfork>=2.2.23
-TgCrypto
-motor
-aiohttp
-dnspython
-python-dotenv
