@@ -1,1 +1,0 @@
-# Miss Cherry - Core Package
