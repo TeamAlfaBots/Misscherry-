@@ -98,10 +98,12 @@ async def cmd_clearflood(client: Client, message: Message):
 @Client.on_message(~filters.private & ~filters.service & ~filters.regex(r"^/"))
 async def track_flood(client: Client, message: Message):
     if not message.from_user:
+        message.continue_propagation()
         return
     chat_id = message.chat.id
     user_id = message.from_user.id
     if await is_approved(chat_id, user_id):
+        message.continue_propagation()
         return
     data = await get_flood(chat_id)
 
@@ -117,6 +119,7 @@ async def track_flood(client: Client, message: Message):
         window = 5
 
     if not limit:
+        message.continue_propagation()
         return
     now = time.time()
     if chat_id not in flood_data:
@@ -142,3 +145,7 @@ async def track_flood(client: Client, message: Message):
             await message.reply(await _(chat_id, key, name=message.from_user.mention))
         except Exception:
             pass
+        # Flood was actioned (message likely deleted) — don't propagate.
+        return
+
+    message.continue_propagation()
